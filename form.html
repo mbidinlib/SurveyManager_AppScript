@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form id="myform">
+   
+    <p>
+    <b>Chose which sheet you would like to generates:</b>
+    </p>   
+    
+    <div class="form-check form-check-inline">
+    <label for="checklist_type">Survey Checklist</label>
+    <input type='radio' name='checklist_type' value = "survey" id="checklist_type"/>
+    </div>
+    <div class="form-check form-check-inline">
+    <label for="checklist_type">Implementation Monitoring Schecklist</label>
+    <input type='radio' name='checklist_type' value = "impl" id="checklist_type"/>
+    </div>
+    <div class="form-check form-check-inline">
+    <label for="checklist_type">Empty Checklist</label>
+    <input type='radio' name='checklist_type' value = "empty" id="checklist_type"/>   
+    </div>
+    
+    <p>
+    Enter The name of the new sheet: (<i>survey will add _survey, 
+    Implementation will add _impl, and empty checklist will at _task to the end of the sheet name</i>)
+    </p> 
+    
+    <div class="block form-group">
+    <label for="last_name"><b>Sheet Name</b></label>
+    <input type='text' name='sheet_name' id="sheet_name"/>
+    </div>
+     
+    <p> </p>     
+    
+    <div class="block">
+    <button type="submit" class="action">Create New Checklist</button>
+    </div>
+    </form>
+    
+    <script>
+    document.querySelector("#myform").addEventListener("submit", 
+    function(e)
+    {
+    e.preventDefault();    //stop form from submitting
+     google.script.run.addNewItem(this);
+     google.script.host.close();//close this dialogbox
+    }
+    );
+    </script>
+    
+    
+    
+  </body>
+</html>
+
+
